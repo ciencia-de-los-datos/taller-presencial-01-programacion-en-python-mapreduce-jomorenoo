@@ -43,7 +43,6 @@ def load_input(input_directory):
 #
 
 def mapper(sequence):
-
     new_sequence = []
     for _, text in sequence:
         words = text.split()
