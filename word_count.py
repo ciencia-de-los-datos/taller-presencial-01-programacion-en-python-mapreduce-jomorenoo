@@ -29,12 +29,6 @@ def load_input(input_directory):
             sequence.append(tupla)
     return sequence
 
-
-   
-
-#load_input("input")
-
-
 #
 # Escriba una función llamada maper que recibe una lista de tuplas de la
 # función anterior y retorna una lista de tuplas (clave, valor). En este caso,
@@ -47,6 +41,7 @@ def load_input(input_directory):
 #     ...
 #   ]
 #
+
 def mapper(sequence):
 
     new_sequence = []
@@ -59,11 +54,6 @@ def mapper(sequence):
              new_sequence.append((word, 1))
              
     return new_sequence
-
-#sequence = load_input("input")
-#mapper(sequence)
-
-
 
 #
 # Escriba la función shuffle_and_sort que recibe la lista de tuplas entregada
@@ -81,13 +71,13 @@ def shuffle_and_sort(sequence):
     new_sequence = sorted(sequence, key=lambda x: x[0])
     return new_sequence
 
-
 #
 # Escriba la función reducer, la cual recibe el resultado de shuffle_and_sort y
 # reduce los valores asociados a cada clave sumandolos. Como resultado, por
 # ejemplo, la reducción indica cuantas veces aparece la palabra analytics en el
 # texto.
 #
+
 def reducer(sequence):
 
     diccionario = {}
@@ -104,19 +94,16 @@ def reducer(sequence):
 
     return new_sequence
 
-
 #
 # Escriba la función create_ouptput_directory que recibe un nombre de directorio
 # y lo crea. Si el directorio existe, la función falla.
-
-#import os.path
+#
 
 def create_output_directory(output_directory):
     
     if os.path.exists(output_directory): 
         raise FileExistsError(f"The directory '{output_directory}' already exist")
     os.makedirs(output_directory)
-
 
 #
 # Escriba la función save_output, la cual almacena en un archivo de texto llamado
@@ -126,17 +113,17 @@ def create_output_directory(output_directory):
 # elemento es la clave y el segundo el valor. Los elementos de la tupla están
 # separados por un tabulador.
 #
+    
 def save_output(output_directory, sequence):
     with open(output_directory + "/part-00000", "w") as file:
         for key, value in sequence:
             file.write(f"{key}\t{value}\n")
 
-
-
-#
+#         
 # La siguiente función crea un archivo llamado _SUCCESS en el directorio
 # entregado como parámetro.
 #
+            
 def create_marker(output_directory):
     with open(output_directory + "/SUCCESS", "w") as file:
         file.write("")
@@ -144,7 +131,7 @@ def create_marker(output_directory):
 #
 # Escriba la función job, la cual orquesta las funciones anteriores.
 #
-        
+          
 def job(input_directory, output_directory):
     sequence = load_input("input")
     sequence = mapper(sequence)
