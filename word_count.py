@@ -125,7 +125,7 @@ def save_output(output_directory, sequence):
 #
             
 def create_marker(output_directory):
-    with open(output_directory + "/SUCCESS", "w") as file:
+    with open(output_directory + "/_SUCCESS", "w") as file:
         file.write("")
 
 #
