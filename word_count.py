@@ -47,12 +47,11 @@ def mapper(sequence):
     for _, text in sequence:
         words = text.split()
         for word in words:
-             word = word.replace(",", " ")
-             word = word.replace(".", " ")
+             word = word.replace(",", "")
+             word = word.replace(".", "")
              word = word.lower()
              new_sequence.append((word, 1))
-             
-    return new_sequence
+        return new_sequence
 
 #
 # Escriba la función shuffle_and_sort que recibe la lista de tuplas entregada
