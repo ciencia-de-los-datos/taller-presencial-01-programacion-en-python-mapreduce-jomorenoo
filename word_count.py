@@ -133,13 +133,13 @@ def create_marker(output_directory):
 #
           
 def job(input_directory, output_directory):
-    sequence = load_input("input")
+    sequence = load_input(input_directory)
     sequence = mapper(sequence)
     sequence = shuffle_and_sort(sequence)
     sequence = reducer(sequence)
-    create_output_directory("output")
-    save_output("output", sequence)
-    create_marker("output")
+    create_output_directory(output_directory)
+    save_output(output_directory, sequence)
+    create_marker(output_directory)
 
 if __name__ == "__main__":
     job(
